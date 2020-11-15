@@ -16,6 +16,7 @@
     padding: 15px;
     margin: 10px 0 0 0;
     font-size: 15px;
+    cursor: pointer;
 }
 
 .regField:nth-child(1){
