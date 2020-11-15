@@ -1,0 +1,13 @@
+body {
+  background: #425F9C;
+}
+.mainBlock {
+  text-align: center;
+  background-color: #fff;
+  padding: 20px;
+  width: 100%;
+  max-width: 400px;
+  margin: 100px auto;
+  display: table;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}

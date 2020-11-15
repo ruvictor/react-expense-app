@@ -1,0 +1,23 @@
+.regField {
+    width: 100%;
+    background-color: #f7f7f7;
+    color: #000;
+    border: 1px solid #ddd;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 15px;
+}
+
+.submitBtn {
+    width: 100%;
+    background: #425f9c;
+    border: 0;
+    color: #fff;
+    padding: 15px;
+    margin: 10px 0 0 0;
+    font-size: 15px;
+}
+
+.regField:nth-child(1){
+    margin-bottom:10px;
+}
