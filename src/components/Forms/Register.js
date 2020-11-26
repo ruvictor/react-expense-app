@@ -1,6 +1,6 @@
 import './Login.css';
 
-const Login = () => {
+const Register = () => {
     return (
         <>
             <form>
@@ -12,4 +12,4 @@ const Login = () => {
     );
 }
 
-export default Login;
+export default Register;

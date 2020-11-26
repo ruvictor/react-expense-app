@@ -22,3 +22,23 @@
 .regField:nth-child(1){
     margin-bottom:10px;
 }
+
+.underLine {
+    text-align: center;
+    margin: 7px 0 0 0;
+    display: block;
+}
+
+.linkBtn {
+    border: 0;
+    background-color: unset;
+    text-decoration: underline;
+    color: #3c4043;
+    padding: 0;
+    margin: 0;
+}
+
+.linkBtn:hover {
+    color: blue;
+    cursor: pointer;
+}
