@@ -7,19 +7,22 @@ export default class Main extends Component {
         user: {
             username: '',
             password: '',
-            isOnline: false
+            isOnline: false,
+            formSwitcher: false
         }
     }
 
     formSwitcher = (action) => {
-        if(action === 'register')
-            return <Register />;
-        else
-            return <Login />;
+        this.setState({formSwitcher: action === 'register' ? true : false});
     }
 
     render() {
-        const content = !this.state.user.isOnline ? <Login /> : 'tracking';
-        return content;
+        const form = !this.state.formSwitcher ? <Login /> : <Register />;
+        return (
+            <>
+                {form}
+                <span className="underLine">Not registered? <button onClick={() => this.formSwitcher(!this.state.formSwitcher ? 'register' : 'login')} className="linkBtn">Create an account</button></span>
+            </>
+        );
     }
 }
