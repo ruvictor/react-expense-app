@@ -21,7 +21,10 @@ export default class Main extends Component {
         return (
             <>
                 {form}
-                <span className="underLine">Not registered? <button onClick={() => this.formSwitcher(!this.state.formSwitcher ? 'register' : 'login')} className="linkBtn">Create an account</button></span>
+                <span className="underLine">Not registered?
+                    <button onClick={() => this.formSwitcher(!this.state.formSwitcher ? 'register' : 'login')} 
+                    className="linkBtn">Create an account</button>
+                </span>
             </>
         );
     }
