@@ -33,14 +33,14 @@ class Login extends Component {
                 <form>
                     <input type="text"
                         className="regField"
-                        placeholder="email"
+                        placeholder="Email"
                         value={this.state.email} 
                         onChange={this.handleChange}
                         name="email"
                         />
                     <input
                         className="regField"
-                        placeholder="pasword"
+                        placeholder="Pasword"
                         value={this.state.password} 
                         onChange={this.handleChange}
                         name="password"

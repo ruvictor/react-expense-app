@@ -19,10 +19,6 @@
     cursor: pointer;
 }
 
-.regField:nth-child(1){
-    margin-bottom:10px;
-}
-
 .underLine {
     text-align: center;
     margin: 7px 0 0 0;

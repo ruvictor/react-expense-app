@@ -1,0 +1,55 @@
+.trackerBlock {
+    /* border-radius: 5px; */
+    box-sizing: border-box;
+    /* background-color: #E9E9E9; */
+    padding: 20px;
+    width: 100%;
+    max-width: 350px;
+    margin: 100px auto;
+    display: table;
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+}
+
+.welcome {
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 10px
+}
+
+.addTransaction {
+    text-align: center;
+    color: #425f9c;
+    display: table;
+    width: 100%;
+    border-radius: 5px;
+    background-color: #fff;
+    border: 0;
+    padding: 10px;
+    font-size: 15px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.addTransaction:hover {
+    color: red;
+    background-color: #f1f1f1;
+}
+
+.addTransaction:focus{
+    outline: none;
+}
+
+.latestTransactions {
+    margin: 10px 0 0 0;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.latestTransactions p{
+    font-weight: bold;
+    padding: 0;
+    margin: 0;
+    font-size: 13px;
+}

@@ -38,21 +38,28 @@ export default class Main extends Component {
     }
 
     render() {
-        // console.log(this.state.user['uid'])
+      console.log(this.state.user)
         const form = !this.state.formSwitcher ? <Login /> : <Register />;
 
         if (this.state.loading){
             return (
-              <div className="Spinner">
-                <img src={Spinner} alt="Spinner" className="ImgSpinner" />
+              <div className="mainBlock">
+                <div className="Spinner">
+                  <img src={Spinner} alt="Spinner" className="ImgSpinner" />
+                </div>
               </div>);
         }
 
         return (
             <>
-                {!this.state.user ? ( <>{form} <span className="underLine">Not registered? <button onClick={() => this.formSwitcher(!this.state.formSwitcher ? 'register' : 'login')} 
+                {!this.state.user ? (
+                    <div className="mainBlock">
+                      {form}
+                      <span className="underLine">Not registered? <button onClick={() => this.formSwitcher(!this.state.formSwitcher ? 'register' : 'login')} 
                         className="linkBtn">Create an account</button>
-                    </span></>) : (<Tracker />)}
+                      </span>
+                    </div>
+                  ) : (<Tracker />)}
             </>
         );
     }
