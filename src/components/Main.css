@@ -1,0 +1,15 @@
+.Error{
+    padding: 10px;
+    background-color: #feeaea;
+    border: 1px solid #fadadb;
+    margin-bottom: 10px;
+    border-radius: 3px;
+  }
+
+  .Spinner{
+    display: table;
+    margin: 0 auto;
+  }
+  .Spinner > .ImgSpinner {
+    max-width: 30px;
+  }

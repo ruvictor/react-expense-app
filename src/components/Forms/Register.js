@@ -46,7 +46,7 @@ class Register extends Component {
                         name="password"
                         type="password"
                     />
-                    <input className="submitBtn" type="submit" onClick={this.register} value="Register" />
+                    <input className="submitBtn" type="submit" onClick={this.register} value="REGISTER" />
                 </form>
             </>
         );
