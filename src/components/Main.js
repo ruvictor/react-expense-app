@@ -8,20 +8,18 @@ import Tracker from './Tracker/Tracker';
 
 export default class Main extends Component {
     state = {
-        user: {
-            user: null
-        },
+        user: null,
         loading: true
     }
 
     componentDidMount(){
-        this.authListener();
-        setTimeout(function() {
-          this.setState({
-            loading: false
-          });
-        }.bind(this), 1000);
-      }
+      this.authListener();
+      setTimeout(function() {
+        this.setState({
+          loading: this.state.user ? false : true
+        });
+      }.bind(this), 1000);
+    }
 
     authListener(){
       fire.auth().onAuthStateChanged((user) => {

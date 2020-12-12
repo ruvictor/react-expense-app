@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Tracker.css';
 import fire from '../../config/Fire';
+import Transaction from './Transaction/Transaction';
 
 class Tracker extends Component {
 
@@ -13,15 +14,16 @@ class Tracker extends Component {
             },
             2: {
                 type: 'expense',
-                name: 'Coffee',
+                name: 'Gas',
                 price: 11
             },
             3: {
                 type: 'deposit',
-                name: 'Coffee',
+                name: 'Grocery',
                 price: 10
             }
-        }
+        },
+        money: 1000
     }
 
     // logout function
@@ -37,11 +39,22 @@ class Tracker extends Component {
                     <span>Hi, {currentUser.displayName}!</span>
                     <button onClick={this.logout}>Logout</button>
                 </div>
+                <div class="totalMoney">${this.state.money}</div>
                 <button className="addTransaction">+ Add Transaction</button>
                 
                 <div className="latestTransactions">
                     <p>Latest Transactions</p>
-                    <hr />
+                    <ul>
+                    {
+                        Object.keys(this.state.transactions).map((id) => (
+                            <Transaction key={id}
+                                type={this.state.transactions[id].type}
+                                name={this.state.transactions[id].name}
+                                price={this.state.transactions[id].price}
+                            />
+                        ))
+                    }
+                    </ul>
                 </div>
             </div>
         );
