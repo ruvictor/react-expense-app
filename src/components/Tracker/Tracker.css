@@ -15,11 +15,13 @@
     display: flex;
     justify-content: space-between;
     margin: 0;
+    text-shadow: 0px 5px 3px #292929;
 }
 .totalMoney {
     color: #fff;
     font-size: 20px;
     margin:0 0 10px;
+    text-shadow: 0px 5px 3px #292929;
 }
 
 .addTransaction {
@@ -50,6 +52,7 @@
     background-color: #fff;
     padding: 10px;
     border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .latestTransactions p{
@@ -69,9 +72,32 @@ ul {
 ul li {
     border-bottom: 1px solid #ddd;
     padding: 5px 0;
+    display: flex;
+    justify-content: space-between;
 }
 
 ul li:last-child{
     border-bottom: 0;
     padding: 5px 0 0;
+}
+
+.expense {
+    color: red;
+}
+
+.deposit {
+    color: green;
+}
+
+.exit {
+    background-color: #fff;
+    border: 0;
+    border-radius: 3px;
+    color: red;
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.exit:hover {
+    background-color: #f1f1f1;
 }

@@ -37,9 +37,9 @@ class Tracker extends Component {
             <div className="trackerBlock">
                 <div className="welcome">
                     <span>Hi, {currentUser.displayName}!</span>
-                    <button onClick={this.logout}>Logout</button>
+                    <button className="exit" onClick={this.logout}>Exit</button>
                 </div>
-                <div class="totalMoney">${this.state.money}</div>
+                <div className="totalMoney">${this.state.money}</div>
                 <button className="addTransaction">+ Add Transaction</button>
                 
                 <div className="latestTransactions">
