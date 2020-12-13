@@ -61,8 +61,27 @@ class Tracker extends Component {
                 <div className="totalMoney">${this.state.money}</div>
 
                 <div className="newTransactionBlock">
-                    <div className=""></div>
-                    <button className="addTransaction">+ Add Transaction</button>
+                    <div className="newTransaction">
+                        <form>
+                            <input
+                                placeholder="Transaction Name"
+                                type="text"
+                                name="transactionName"
+                            />
+                            <div className="inputGroup">
+                                <select name="type">
+                                    <option value="expense">Expense</option>
+                                    <option value="deposit">Deposit</option>
+                                </select>
+                                <input
+                                    placeholder="Price"
+                                    type="text"
+                                    name="price"
+                                />
+                            </div>
+                        </form>
+                        <button className="addTransaction">+ Add Transaction</button>
+                    </div>
                 </div>
                 
                 <div className="latestTransactions">

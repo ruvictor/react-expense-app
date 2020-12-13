@@ -24,7 +24,8 @@
     text-shadow: 0px 5px 3px #292929;
 }
 
-.addTransaction {
+.newTransaction {
+    box-sizing: border-box;
     text-align: center;
     color: #425f9c;
     display: table;
@@ -33,19 +34,51 @@
     background-color: #fff;
     border: 0;
     padding: 10px;
+    margin:0 0 10px;
     font-size: 15px;
-    cursor: pointer;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+.newTransaction input[type="text"],
+.newTransaction select{
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    font-size: 13px;
+    padding: 7px;
+}
+
+.newTransaction input[type="text"]:focus,
+.newTransaction select:focus{
+    outline: none;
+}
+
+.inputGroup {
+    display:flex;
+    justify-content: center;
+}
+
+.addTransaction {
+    text-align: center;
+    color: #ffffff;
+    border-radius: 3px;
+    background-color: #425f9c;
+    border: 0;
+    margin: 5px 0 0;
+    padding: 5px 10px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
 .addTransaction:hover {
-    color: red;
-    background-color: #f1f1f1;
+    background-color: #274177;
 }
 
 .addTransaction:focus{
     outline: none;
 }
+
+
 
 .latestTransactions {
     margin: 10px 0 0 0;
