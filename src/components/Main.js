@@ -8,17 +8,12 @@ import Tracker from './Tracker/Tracker';
 
 export default class Main extends Component {
     state = {
-        user: null,
+        user: 1,
         loading: true
     }
 
     componentDidMount(){
       this.authListener();
-      setTimeout(function() {
-        this.setState({
-          loading: this.state.user ? false : true
-        });
-      }.bind(this), 1000);
     }
 
     authListener(){
@@ -36,10 +31,9 @@ export default class Main extends Component {
     }
 
     render() {
-      console.log(this.state.user)
         const form = !this.state.formSwitcher ? <Login /> : <Register />;
 
-        if (this.state.loading){
+        if (this.state.user === 1){
             return (
               <div className="mainBlock">
                 <div className="Spinner">

@@ -31,6 +31,25 @@ class Tracker extends Component {
         fire.auth().signOut();
     }
 
+    // // add transaction
+    // addNewTransaction = () => {
+    //     console.log('dss');
+    //     const BackUpState = this.state.transactions;
+    //     // BackUpState.push({id: BackUpState.length + 1, content: note});
+    //     fire.database().ref('Notes/').push({
+    //         // id: this.state.transactions.length + 1,
+    //         note: BackUpState
+    //     }).then((data)=>{
+    //         //success callback
+    //         // this.setState({
+    //         //     notes: BackUpState
+    //         // })
+    //     }).catch((error)=>{
+    //         //error callback
+    //         console.log('error ' , error)
+    //     })
+    // }
+
     render(){
         var currentUser = fire.auth().currentUser;
         return(
@@ -40,7 +59,11 @@ class Tracker extends Component {
                     <button className="exit" onClick={this.logout}>Exit</button>
                 </div>
                 <div className="totalMoney">${this.state.money}</div>
-                <button className="addTransaction">+ Add Transaction</button>
+
+                <div className="newTransactionBlock">
+                    <div className=""></div>
+                    <button className="addTransaction">+ Add Transaction</button>
+                </div>
                 
                 <div className="latestTransactions">
                     <p>Latest Transactions</p>
