@@ -26,6 +26,7 @@ class Tracker extends Component {
                 price: 16
             }
         ],
+        newTransaction: [],
         money: 1000,
 
         transactionName: '',
@@ -48,15 +49,22 @@ class Tracker extends Component {
     addNewTransaction = () => {
         console.log('dss');
         const BackUpState = this.state.transactions;
-        // BackUpState.push({id: BackUpState.length + 1, content: note});
-        fire.database().ref('Notes/').push({
-            // id: this.state.transactions.length + 1,
-            note: BackUpState
+        BackUpState.push({
+            id: BackUpState.length + 1,
+            name: this.state.transactionName,
+            type: this.state.transactionType,
+            price: this.state.price,
+        });
+        // this.setState({
+        //     transactions: BackUpState
+        // });
+        fire.database().ref('Transactions/').push({
+            transations: BackUpState
         }).then((data)=>{
             //success callback
-            // this.setState({
-            //     notes: BackUpState
-            // })
+            this.setState({
+                transactions: BackUpState
+            })
         }).catch((error)=>{
             //error callback
             console.log('error ' , error)
@@ -78,19 +86,22 @@ class Tracker extends Component {
                         <form>
                             <input
                                 onChange={this.handleChange('transactionName')}
+                                value={this.state.transactionName}
                                 placeholder="Transaction Name"
                                 type="text"
                                 name="transactionName"
                             />
                             <div className="inputGroup">
                                 <select name="type"
-                                    onChange={this.handleChange('transactionType')}>
+                                    onChange={this.handleChange('transactionType')}
+                                    value={this.state.transactionType}>
                                     <option value="0">Type</option>
                                     <option value="expense">Expense</option>
                                     <option value="deposit">Deposit</option>
                                 </select>
                                 <input
                                     onChange={this.handleChange('price')}
+                                    value={this.state.price}
                                     placeholder="Price"
                                     type="text"
                                     name="price"
