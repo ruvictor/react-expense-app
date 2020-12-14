@@ -87,15 +87,15 @@ class Tracker extends Component {
                 <div className="latestTransactions">
                     <p>Latest Transactions</p>
                     <ul>
-                    {
-                        Object.keys(this.state.transactions).map((id) => (
-                            <Transaction key={id}
-                                type={this.state.transactions[id].type}
-                                name={this.state.transactions[id].name}
-                                price={this.state.transactions[id].price}
-                            />
-                        ))
-                    }
+                        {
+                            Object.keys(this.state.transactions).map((id) => (
+                                <Transaction key={id}
+                                    type={this.state.transactions[id].type}
+                                    name={this.state.transactions[id].name}
+                                    price={this.state.transactions[id].price}
+                                />
+                            ))
+                        }
                     </ul>
                 </div>
             </div>
