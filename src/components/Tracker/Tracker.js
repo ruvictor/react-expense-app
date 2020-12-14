@@ -6,24 +6,31 @@ import Transaction from './Transaction/Transaction';
 class Tracker extends Component {
 
     state = {
-        transactions: {
-            1: {
+        transactions: [
+            {
+                id: 1,
                 type: 'deposit',
+                name: 'ATM Deposit',
+                price: 16
+            },
+            {
+                id: 2,
+                type: 'expense',
                 name: 'Coffee',
                 price: 16
             },
-            2: {
+            {
+                id: 3,
                 type: 'expense',
                 name: 'Gas',
-                price: 11
-            },
-            3: {
-                type: 'deposit',
-                name: 'Grocery',
-                price: 10
+                price: 16
             }
-        },
-        money: 1000
+        ],
+        money: 1000,
+
+        transactionName: '',
+        transactionType: '',
+        price: ''
     }
 
     // logout function
@@ -31,24 +38,30 @@ class Tracker extends Component {
         fire.auth().signOut();
     }
 
-    // // add transaction
-    // addNewTransaction = () => {
-    //     console.log('dss');
-    //     const BackUpState = this.state.transactions;
-    //     // BackUpState.push({id: BackUpState.length + 1, content: note});
-    //     fire.database().ref('Notes/').push({
-    //         // id: this.state.transactions.length + 1,
-    //         note: BackUpState
-    //     }).then((data)=>{
-    //         //success callback
-    //         // this.setState({
-    //         //     notes: BackUpState
-    //         // })
-    //     }).catch((error)=>{
-    //         //error callback
-    //         console.log('error ' , error)
-    //     })
-    // }
+    handleChange = input => e => {
+        this.setState({
+            [input]: e.target.value !=="0" ? e.target.value : ""
+        });
+    }
+
+    // add transaction
+    addNewTransaction = () => {
+        console.log('dss');
+        const BackUpState = this.state.transactions;
+        // BackUpState.push({id: BackUpState.length + 1, content: note});
+        fire.database().ref('Notes/').push({
+            // id: this.state.transactions.length + 1,
+            note: BackUpState
+        }).then((data)=>{
+            //success callback
+            // this.setState({
+            //     notes: BackUpState
+            // })
+        }).catch((error)=>{
+            //error callback
+            console.log('error ' , error)
+        })
+    }
 
     render(){
         var currentUser = fire.auth().currentUser;
@@ -64,23 +77,27 @@ class Tracker extends Component {
                     <div className="newTransaction">
                         <form>
                             <input
+                                onChange={this.handleChange('transactionName')}
                                 placeholder="Transaction Name"
                                 type="text"
                                 name="transactionName"
                             />
                             <div className="inputGroup">
-                                <select name="type">
+                                <select name="type"
+                                    onChange={this.handleChange('transactionType')}>
+                                    <option value="0">Type</option>
                                     <option value="expense">Expense</option>
                                     <option value="deposit">Deposit</option>
                                 </select>
                                 <input
+                                    onChange={this.handleChange('price')}
                                     placeholder="Price"
                                     type="text"
                                     name="price"
                                 />
                             </div>
                         </form>
-                        <button className="addTransaction">+ Add Transaction</button>
+                        <button onClick={() => this.addNewTransaction()} className="addTransaction">+ Add Transaction</button>
                     </div>
                 </div>
                 
