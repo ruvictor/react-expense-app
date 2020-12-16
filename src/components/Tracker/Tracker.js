@@ -7,26 +7,25 @@ class Tracker extends Component {
 
     state = {
         transactions: [
-            {
-                id: 1,
-                type: 'deposit',
-                name: 'ATM Deposit',
-                price: 16
-            },
-            {
-                id: 2,
-                type: 'expense',
-                name: 'Coffee',
-                price: 16
-            },
-            {
-                id: 3,
-                type: 'expense',
-                name: 'Gas',
-                price: 16
-            }
+            // {
+            //     id: 1,
+            //     type: 'deposit',
+            //     name: 'ATM Deposit',
+            //     price: 16
+            // },
+            // {
+            //     id: 2,
+            //     type: 'expense',
+            //     name: 'Coffee',
+            //     price: 16
+            // },
+            // {
+            //     id: 3,
+            //     type: 'expense',
+            //     name: 'Gas',
+            //     price: 16
+            // }
         ],
-        newTransaction: [],
         money: 1000,
 
         transactionName: '',
@@ -47,7 +46,6 @@ class Tracker extends Component {
 
     // add transaction
     addNewTransaction = () => {
-        console.log('dss');
         const BackUpState = this.state.transactions;
         BackUpState.push({
             id: BackUpState.length + 1,
@@ -55,15 +53,20 @@ class Tracker extends Component {
             type: this.state.transactionType,
             price: this.state.price,
         });
-        // this.setState({
-        //     transactions: BackUpState
-        // });
+        
         fire.database().ref('Transactions/').push({
-            transations: BackUpState
-        }).then((data)=>{
+            id: BackUpState.length,
+            name: this.state.transactionName,
+            type: this.state.transactionType,
+            price: this.state.price,
+        }).then((data) => {
             //success callback
+            console.log('success callback');
             this.setState({
-                transactions: BackUpState
+                transactions: BackUpState,
+                transactionName: '',
+                transactionType: '',
+                price: ''
             })
         }).catch((error)=>{
             //error callback
