@@ -30,35 +30,40 @@ class Tracker extends Component {
     addNewTransaction = () => {
         const {transactionName, transactionType, price, currentUID, money} = this.state;
 
-        const BackUpState = this.state.transactions;
-        BackUpState.push({
-            id: BackUpState.length + 1,
-            name: transactionName,
-            type: transactionType,
-            price: price,
-            user_id: currentUID
-        });
-        
-        fire.database().ref('Transactions/' + currentUID).push({
-            id: BackUpState.length,
-            name: transactionName,
-            type: transactionType,
-            price: price,
-            user_id: currentUID
-        }).then((data) => {
-            //success callback
-            console.log('success callback');
-            this.setState({
-                transactions: BackUpState,
-                money: transactionType === 'deposit' ? money + parseFloat(price) : money - parseFloat(price),
-                transactionName: '',
-                transactionType: '',
-                price: ''
-            })
-        }).catch((error)=>{
-            //error callback
-            console.log('error ' , error)
-        })
+        // validation
+        if(transactionName && transactionType && price){
+
+            const BackUpState = this.state.transactions;
+            BackUpState.push({
+                id: BackUpState.length + 1,
+                name: transactionName,
+                type: transactionType,
+                price: price,
+                user_id: currentUID
+            });
+            
+            fire.database().ref('Transactions/' + currentUID).push({
+                id: BackUpState.length,
+                name: transactionName,
+                type: transactionType,
+                price: price,
+                user_id: currentUID
+            }).then((data) => {
+                //success callback
+                console.log('success callback');
+                this.setState({
+                    transactions: BackUpState,
+                    money: transactionType === 'deposit' ? money + parseFloat(price) : money - parseFloat(price),
+                    transactionName: '',
+                    transactionType: '',
+                    price: ''
+                })
+            }).catch((error)=>{
+                //error callback
+                console.log('error ' , error)
+            });
+
+        }
     }
 
     componentWillMount(){
@@ -82,7 +87,7 @@ class Tracker extends Component {
                     price: childSnapshot.val().price,
                     user_id: childSnapshot.val().user_id
                 });
-                console.log(childSnapshot.val().name);
+                // console.log(childSnapshot.val().name);
             });
             this.setState({
                 transactions: BackUpState,
