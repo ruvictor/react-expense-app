@@ -38,3 +38,8 @@
     color: blue;
     cursor: pointer;
 }
+
+.linkBtn:focus,
+.submitBtn:focus{
+    outline: none;
+}
